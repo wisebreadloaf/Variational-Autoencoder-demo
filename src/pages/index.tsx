@@ -84,44 +84,240 @@ export function TopPanel() {
 
 export function Controls() {
   const boxes = Array.from({ length: 10 }, (_, i) => i);
-  const [selectValue, setSelectValue] = React.useState(10); // Default value set to 10 for "Unit"
+  const [selectValue, setSelectValue] = React.useState(10);
 
   const handleSelectChange = (event) => {
     setSelectValue(event.target.value);
   };
 
   return (
-    <div className="flex justify-between w-full">
-      <div className="bg-[#ffffff] min-w-full min-h-10 flex flex-row items-center">
-        {boxes.map((id) => (
-          <div
-            key={id}
-            className="bg-[#5f5f5f] h-8 w-8 rounded-sm ml-2 flex items-center justify-center"
-          >
-            <img
-              src={`/generated_${id}.png`}
-              alt={`generated_${id}`}
-              className="h-full w-full object-cover rounded-sm p-[1.5px]"
-            />
-          </div>
-        ))}
+    <div className="flex flex-row bg-[#ffffff] min-w-full min-h-10 flex justify-between items-center w-full">
+      <div>
+        <div className="flex flex-row items-center">
+          {boxes.map((id) => (
+            <div
+              key={id}
+              className="bg-[#5f5f5f] h-8 w-8 rounded-sm ml-2 flex items-center justify-center"
+            >
+              <img
+                src={`/generated_${id}.png`}
+                alt={`generated_${id}`}
+                className="h-full w-full object-cover rounded-sm p-[1.5px]"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="flex p-2 gap-[6px]">
+        <Button className="h-6 w-30 text-[8px]" variant="outlined">
+          <VisibilityIcon className="text-sm mr-[4px]" />
+          Show detail
+        </Button>
         <Select
-          className="absolute right-[10px] ml-2 h-6 w-24 text-[11px] font-thin"
+          className="h-6 w-24 text-[12px] font-thin"
           value={selectValue}
           onChange={handleSelectChange}
           displayEmpty
         >
-          <MenuItem value={10}>Unit</MenuItem>
-          <MenuItem value={20}>Global</MenuItem>
-          <MenuItem value={30}>Module</MenuItem>
+          <MenuItem className="w-24 text-[12px]" value={10}>
+            Unit
+          </MenuItem>
+          <MenuItem className="w-24 text-[12px]" value={20}>
+            Global
+          </MenuItem>
+          <MenuItem className="w-24 text-[12px]" value={30}>
+            Module
+          </MenuItem>
         </Select>
-        <Button
-          className="absolute h-6 w-30 text-[8px] right-[110px]"
-          variant="outlined"
-        >
-          <VisibilityIcon className="text-sm mr-[4px]" />
-          Show detail
-        </Button>
+      </div>
+    </div>
+  );
+}
+
+export function Visual() {
+  const l1boxes = Array.from({ length: 4 }, (_, i) => i);
+  const l2boxes = Array.from({ length: 8 }, (_, i) => i);
+  const l3boxes = Array.from({ length: 200 }, (_, i) => i);
+  const l4boxes = Array.from({ length: 20 }, (_, i) => i);
+
+  return (
+    <div className="flex flex-row items-center justify-center min-w-full h-auto bg-[#f8f8f8]">
+      <div className="bg-[#5f5f5f] h-8 w-8 rounded-sm ml-2 flex items-center justify-center">
+        <img
+          src={`/input.png`}
+          alt={`input`}
+          className="h-full w-full object-cover rounded-sm p-[1.5px]"
+        />
+      </div>
+      <div className="flex flex-col items-center ml-12">
+        {l1boxes.map((id) => (
+          <div
+            key={id}
+            className="bg-[#5f5f5f] h-8 w-8 rounded-sm ml-4 m-2 flex items-center justify-center"
+          >
+            <img
+              src={`/conv/generated_l1_c${id}.png`}
+              alt={`generated_l1_c${id}`}
+              className="h-full w-full object-cover rounded-sm p-[1.5px]"
+            />
+          </div>
+        ))}
+      </div>
+      <div className="flex flex-col items-center">
+        {l1boxes.map((id) => (
+          <div
+            key={id}
+            className="bg-[#5f5f5f] h-8 w-8 rounded-sm ml-4 m-2 flex items-center justify-center"
+          >
+            <img
+              src={`/conv/generated_l1_c${id}.png`}
+              alt={`generated_l1_r${id}`}
+              className="h-full w-full object-cover rounded-sm p-[1.5px]"
+            />
+          </div>
+        ))}
+      </div>
+      <div className="flex flex-col items-center ml-12">
+        {l2boxes.map((id) => (
+          <div
+            key={id}
+            className="bg-[#5f5f5f] h-8 w-8 rounded-sm ml-4 m-2 flex items-center justify-center"
+          >
+            <img
+              src={`/conv/generated_l2_c${id}.png`}
+              alt={`generated_l1_c${id}`}
+              className="h-full w-full object-cover rounded-sm p-[1.5px]"
+            />
+          </div>
+        ))}
+      </div>
+      <div className="flex flex-col items-center">
+        {l2boxes.map((id) => (
+          <div
+            key={id}
+            className="bg-[#5f5f5f] h-8 w-8 rounded-sm ml-4 m-2 flex items-center justify-center"
+          >
+            <img
+              src={`/conv/generated_l2_r${id}.png`}
+              alt={`generated_l1_r${id}`}
+              className="h-full w-full object-cover rounded-sm p-[1.5px]"
+            />
+          </div>
+        ))}
+      </div>
+      <div className="flex flex-col items-center">
+        {l3boxes.map((id) => (
+          <div
+            key={id}
+            className="bg-[#5f5f5f] h-[4px] w-[4px] rounded-sm m-[2px] ml-12 flex items-center justify-center"
+          ></div>
+        ))}
+      </div>
+      <div className="flex flex-col items-center">
+        {l3boxes.map((id) => (
+          <div
+            key={id}
+            className="bg-[#5f5f5f] h-[4px] w-[4px] rounded-sm m-[2px] ml-8 flex items-center justify-center"
+          ></div>
+        ))}
+      </div>
+      <div className="flex flex-col">
+        <div className="flex flex-col items-center">
+          {l4boxes.map((id) => (
+            <div
+              key={id}
+              className="bg-[#5f5f5f] h-[4px] w-[4px] rounded-sm m-[2px] ml-12 flex items-center justify-center"
+            ></div>
+          ))}
+        </div>
+        <div className="flex flex-col items-center mt-16">
+          {l4boxes.map((id) => (
+            <div
+              key={id}
+              className="bg-[#5f5f5f] h-[4px] w-[4px] rounded-sm ml-12 m-[2px] flex items-center justify-center"
+            ></div>
+          ))}
+        </div>
+        <div className="flex flex-col items-center mt-16">
+          {l4boxes.map((id) => (
+            <div
+              key={id}
+              className="bg-[#5f5f5f] h-[4px] w-[4px] rounded-sm ml-12 flex m-[2px] items-center justify-center"
+            ></div>
+          ))}
+        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        {l3boxes.map((id) => (
+          <div
+            key={id}
+            className="bg-[#5f5f5f] h-[4px] w-[4px] rounded-sm ml-12 m-[2px] flex items-center justify-center"
+          ></div>
+        ))}
+      </div>
+      <div className="flex flex-col items-center">
+        {l3boxes.map((id) => (
+          <div
+            key={id}
+            className="bg-[#5f5f5f] h-[4px] w-[4px] rounded-sm ml-8 m-[2px] flex items-center justify-center"
+          ></div>
+        ))}
+      </div>
+      <div className="flex flex-col items-center">
+        {l2boxes.map((id) => (
+          <div
+            key={id}
+            className="bg-[#5f5f5f] h-8 w-8 rounded-sm ml-12 m-2 flex items-center justify-center"
+          >
+            <img
+              src={`/deconv/resize_i${id}.png`}
+              alt={`generated_l1_r${id}`}
+              className="h-full w-full object-cover rounded-sm p-[1.5px]"
+            />
+          </div>
+        ))}
+      </div>
+      <div className="flex flex-col items-center ml-12">
+        {l1boxes.map((id) => (
+          <div
+            key={id}
+            className="bg-[#5f5f5f] h-8 w-8 rounded-sm ml-4 m-2 flex items-center justify-center"
+          >
+            <img
+              src={`/deconv/generated_l1_c${id}.png`}
+              alt={`generated_l1_c${id}`}
+              className="h-full w-full object-cover rounded-sm p-[1.5px]"
+            />
+          </div>
+        ))}
+      </div>
+      <div className="flex flex-col items-center">
+        {l1boxes.map((id) => (
+          <div
+            key={id}
+            className="bg-[#5f5f5f] h-8 w-8 rounded-sm ml-4 m-2 flex items-center justify-center"
+          >
+            <img
+              src={`/deconv/generated_l1_r${id}.png`}
+              alt={`generated_l1_r${id}`}
+              className="h-full w-full object-cover rounded-sm p-[1.5px]"
+            />
+          </div>
+        ))}
+      </div>
+      <div className="bg-[#5f5f5f] h-8 w-8 rounded-sm ml-12 flex items-center justify-center">
+        <img
+          src={`/deconv/trans_result.png`}
+          alt={`input`}
+          className="h-full w-full object-cover rounded-sm p-[1.5px]"
+        />
+      </div>
+      <div className="bg-[#5f5f5f] h-8 w-8 rounded-sm ml-4 flex items-center justify-center">
+        <img
+          src={`/deconv/result.png`}
+          alt={`input`}
+          className="h-full w-full object-cover rounded-sm p-[1.5px]"
+        />
       </div>
     </div>
   );
@@ -135,6 +331,7 @@ export default function Home() {
       <Header />
       <TopPanel />
       <Controls />
+      <Visual />
     </main>
   );
 }
